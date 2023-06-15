@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "981247060624",
+    "project_id": "mycomposeapp-d5b01",
+    "storage_bucket": "mycomposeapp-d5b01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981247060624:android:6b928a510a703ef5bb0615",
+        "android_client_info": {
+          "package_name": "com.example.mycomposeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981247060624-51ngbmad5o3sahl17l5dr5ikmd47d5cp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeK8CdGeprntH2ZZx7vt0quUEAg2-rTcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981247060624-51ngbmad5o3sahl17l5dr5ikmd47d5cp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
