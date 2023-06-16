@@ -1,5 +1,5 @@
 # MyComposeApp
-Compose practice
+  <h3>Compose practice: </h3>
 <ol>
   <li>
     <strong>Modüller:</strong> Projemde mantıksal olarak bölünmüş modüller kullandım. Bu modüller, farklı işlevlere veya bileşenlere sahip olabilir ve ayrı iş mantıklarında çalışarak test edilebilirliği kolaylaştırır.
