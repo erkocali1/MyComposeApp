@@ -23,3 +23,8 @@
     <strong>Coroutine:</strong> FireBase ile  Kullanıcıların oturum açma, veritabanı yönetimi, dosya depolama, sunucu tarafı mantığı, bildirimler gibi birçok temel işlevi hızlı ve verimli bir şekilde uygulamalarına entegre etmesini sağlayan Google tarafından sunulan bir Bulut Tabanlı Hizmet platformunu kullandım.
   </li>
 </ol>
+<div style="display: flex;">
+  <img src="https://github.com/erkocali1/MyComposeApp/blob/master/app/src/main/res/drawable/ss1.png" width="300" height="550">
+  <img src="https://github.com/erkocali1/MyComposeApp/blob/master/app/src/main/res/drawable/ss2.png" width="300" height="550">
+  <img src="https://github.com/erkocali1/MyComposeApp/blob/master/app/src/main/res/drawable/ss3.png" width="300" height="550">
+</div>
