@@ -19,4 +19,7 @@
   <li>
     <strong>Coroutine:</strong> Retrofit gibi kütüphanelerle asenkron işlemleri daha okunabilir ve yönetilebilir hale getiren Coroutine yapısını kullandım. Coroutine'leri kullanarak asenkron işlemleri kolayca yönetebilir, arka planda çalışan işlemleri takip edebilir ve UI thread'ini bloke etmeden veri alışverişini gerçekleştirebilirsiniz.
   </li>
+    <li>
+    <strong>Coroutine:</strong> FireBase ile  Kullanıcıların oturum açma, veritabanı yönetimi, dosya depolama, sunucu tarafı mantığı, bildirimler gibi birçok temel işlevi hızlı ve verimli bir şekilde uygulamalarına entegre etmesini sağlayan Google tarafından sunulan bir Bulut Tabanlı Hizmet platformunu kullandım.
+  </li>
 </ol>
