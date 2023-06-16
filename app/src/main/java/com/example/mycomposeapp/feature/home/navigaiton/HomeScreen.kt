@@ -24,26 +24,28 @@ import com.example.mycomposeapp.ui.theme.component.ProductCard
 
 @Composable
 internal fun HomeScreenRoute(
-    modifier: Modifier = Modifier, viewModel: HomeViewModel = hiltViewModel()
+    modifier: Modifier = Modifier, viewModel: HomeViewModel = hiltViewModel(),
+    navigateToDetail:(Int)->Unit
 ) {
     val homeUiState by viewModel.uiState.collectAsStateWithLifecycle()
-    HomeScreen(modifier = modifier, homeUiState)
+    HomeScreen(modifier = modifier, homeUiState,navigateToDetail)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier, homeUiState: HomeUiState) {
+fun HomeScreen(modifier: Modifier = Modifier, homeUiState: HomeUiState, navigateToDetail:(Int)->Unit) {
     Scaffold(modifier = modifier,
         topBar = {
         TopAppBar(title = { Text(text = "Home") })
     }) {
-        Content(modifier = Modifier.padding(it), homeUiState = homeUiState)
+        Content(modifier = Modifier.padding(it), homeUiState = homeUiState
+        ,navigateToDetail=navigateToDetail)
     }
 
 }
 
 @Composable
-private fun Content(modifier: Modifier, homeUiState: HomeUiState) {
+private fun Content(modifier: Modifier, homeUiState: HomeUiState, navigateToDetail:(Int)->Unit) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = modifier.fillMaxSize().padding(horizontal = 24.dp),
@@ -55,7 +57,8 @@ private fun Content(modifier: Modifier, homeUiState: HomeUiState) {
 
                     product.id.toString()
                 }) {
-                   ProductCard(productItem = it, onProductDetailClicked ={} )
+                   ProductCard(productItem = it,
+                       onProductDetailClicked ={navigateToDetail.invoke(it)} )
                 }
             }
         }

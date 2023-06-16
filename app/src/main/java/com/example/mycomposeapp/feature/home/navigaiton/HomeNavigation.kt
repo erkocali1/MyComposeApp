@@ -13,8 +13,8 @@ fun NavController.navigateToHome(
     this.navigate(HomeNavigationRoute,navOptions)
 }
 
-fun NavGraphBuilder.homeScreen() {
+fun NavGraphBuilder.homeScreen(navigateToDetail:(Int)->Unit) {
     composable(HomeNavigationRoute) {
-        HomeScreenRoute()
+        HomeScreenRoute(navigateToDetail =navigateToDetail )
     }
 }

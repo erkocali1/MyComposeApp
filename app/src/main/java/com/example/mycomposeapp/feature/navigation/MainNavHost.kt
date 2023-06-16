@@ -8,6 +8,8 @@ import com.example.mycomposeapp.feature.category.navigation.categoryScreen
 import com.example.mycomposeapp.feature.profile.navigation.profileScreen
 import com.example.mycomposeapp.feature.home.navigaiton.HomeNavigationRoute
 import com.example.mycomposeapp.feature.home.navigaiton.homeScreen
+import com.example.mycomposeapp.feature.productdetail.navigateToProductDetail
+import com.example.mycomposeapp.feature.productdetail.productDetailScreen
 import com.example.mycomposeapp.feature.splash.navigation.SplashNavigationRoute
 import com.example.mycomposeapp.feature.splash.navigation.splashScreen
 
@@ -21,7 +23,9 @@ fun MainNavHost(
         navController = navController, modifier = modifier, startDestination = startDestination
     ) {
         loginScreen()
-        homeScreen()
+        homeScreen(navigateToDetail ={ id->
+            navController.navigateToProductDetail(id)
+        })
         splashScreen(navigateToLogin = {
             navController.navigate(LoginNavigationRoute) {
                 popUpTo(LoginNavigationRoute) {
@@ -37,5 +41,6 @@ fun MainNavHost(
         })
         profileScreen()
         categoryScreen()
+        productDetailScreen()
     }
 }
