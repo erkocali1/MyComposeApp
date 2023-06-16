@@ -1,9 +1,12 @@
 package com.example.mycomposeapp.core.data.di
 
 import com.example.mycomposeapp.core.data.remote.api.AuthService
+import com.google.firebase.FirebaseApp
+import com.google.firebase.ktx.Firebase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -53,5 +56,6 @@ object RemoteDataModule {
     fun provideAuthService(retrofit: Retrofit): AuthService {
         return retrofit.create(AuthService::class.java)
     }
+
 
 }
