@@ -16,8 +16,10 @@ import androidx.compose.runtime.getValue
 
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.mycomposeapp.ui.theme.component.ProductCard
 
 
 @Composable
@@ -44,16 +46,16 @@ fun HomeScreen(modifier: Modifier = Modifier, homeUiState: HomeUiState) {
 private fun Content(modifier: Modifier, homeUiState: HomeUiState) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
-            modifier = modifier.fillMaxSize(),
+            modifier = modifier.fillMaxSize().padding(horizontal = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            LazyColumn {
+            LazyColumn(modifier = Modifier, verticalArrangement = Arrangement.spacedBy(16.dp)) {
                 items(homeUiState.products, key = { product ->
 
                     product.id.toString()
                 }) {
-                    Text(text = it.title.orEmpty())
+                   ProductCard(productItem = it, onProductDetailClicked ={} )
                 }
             }
         }
