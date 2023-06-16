@@ -20,12 +20,11 @@ import kotlinx.coroutines.CoroutineScope
 @Composable
 fun rememberMainAppState(
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
 ): MainAppState {
     return remember(navController, coroutineScope) {
         MainAppState(navController, coroutineScope)
     }
-
 }
 
 @Stable
@@ -36,6 +35,7 @@ class MainAppState(
     val currentDestination: NavDestination?
         @Composable get() = navController
             .currentBackStackEntryAsState().value?.destination
+
     val shouldShowBottomBar: Boolean
         @Composable get() = currentDestination?.hierarchy?.any { destination ->
             topLevelDestinations.any {

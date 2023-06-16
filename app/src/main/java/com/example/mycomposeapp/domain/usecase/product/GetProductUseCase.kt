@@ -1,0 +1,18 @@
+package com.example.mycomposeapp.domain.usecase.product
+
+import com.example.mycomposeapp.core.data.model.ProductResponse
+import com.example.mycomposeapp.core.data.remote.repository.ProductRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
+
+class GetProductsUseCase @Inject constructor(private val productRepository: ProductRepository) {
+    operator fun invoke(): Flow<List<ProductResponse>> {
+        return flow {
+            val result = productRepository.getProducts()
+            (result.getOrNull() ?: throw IllegalArgumentException("error message")).also {
+                emit(it)
+            }
+        }
+    }
+}

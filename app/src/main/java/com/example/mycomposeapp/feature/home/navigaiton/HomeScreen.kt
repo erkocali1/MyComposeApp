@@ -1,29 +1,61 @@
 package com.example.mycomposeapp.feature.home.navigaiton
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 
 @Composable
 internal fun HomeScreenRoute(
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier, viewModel: HomeViewModel = hiltViewModel()
 ) {
-    HomeScreen(modifier = modifier)
+    val homeUiState by viewModel.uiState.collectAsStateWithLifecycle()
+    HomeScreen(modifier = modifier, homeUiState)
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun HomeScreen(modifier: Modifier = Modifier, homeUiState: HomeUiState) {
+    Scaffold(modifier = modifier,
+        topBar = {
+        TopAppBar(title = { Text(text = "Home") })
+    }) {
+        Content(modifier = Modifier.padding(it), homeUiState = homeUiState)
+    }
+
 }
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
-    Column(
-        modifier = modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(text = "Home Screen")
+private fun Content(modifier: Modifier, homeUiState: HomeUiState) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            LazyColumn {
+                items(homeUiState.products, key = { product ->
+
+                    product.id.toString()
+                }) {
+                    Text(text = it.title.orEmpty())
+                }
+            }
+        }
     }
 }

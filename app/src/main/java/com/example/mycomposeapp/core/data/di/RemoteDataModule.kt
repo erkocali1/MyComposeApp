@@ -1,6 +1,7 @@
 package com.example.mycomposeapp.core.data.di
 
 import com.example.mycomposeapp.core.data.remote.api.AuthService
+import com.example.mycomposeapp.core.data.remote.api.ProductService
 import com.google.firebase.FirebaseApp
 import com.google.firebase.ktx.Firebase
 import dagger.Module
@@ -12,6 +13,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -57,5 +59,10 @@ object RemoteDataModule {
         return retrofit.create(AuthService::class.java)
     }
 
+    @Provides
+    @Singleton
+    fun provideProductService(retrofit: Retrofit): ProductService {
+        return retrofit.create(ProductService::class.java)
+    }
 
 }

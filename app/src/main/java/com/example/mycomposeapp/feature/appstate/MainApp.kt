@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.example.mycomposeapp.feature.appstate
 
 import androidx.compose.animation.AnimatedVisibility
@@ -17,26 +19,25 @@ import com.example.mycomposeapp.feature.navigation.MainNavHost
 import com.example.mycomposeapp.feature.navigation.TopLevelDestination
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainApp(
     modifier: Modifier = Modifier,
     appState: MainAppState = rememberMainAppState(),
 ) {
-    Scaffold(modifier = modifier, bottomBar = {
-        AnimatedVisibility(visible = appState.shouldShowBottomBar) {
-
-        }
-
-        AppNavBar(
-            destinations = AppDestinations(appState.topLevelDestinations),
-            onNavigateToDestination = appState::navigateToTopLevelDestination,
-            currentDestination = appState.currentDestination!!
+    Scaffold(modifier = modifier,
+        bottomBar = {
+            AnimatedVisibility(visible = appState.shouldShowBottomBar) {
+                AppNavBar(
+                    destinations = AppDestinations(appState.topLevelDestinations),
+                    onNavigateToDestination = appState::navigateToTopLevelDestination,
+                    currentDestination = appState.currentDestination
+                )
+            }
+        }) {
+        MainNavHost(
+            navController = appState.navController,
+            modifier = modifier.padding(it)
         )
-
-    }) {
-        MainNavHost(navController = appState.navController, modifier = modifier.padding(it))
-
     }
 }
 
@@ -48,13 +49,14 @@ data class AppDestinations(
 internal fun AppNavBar(
     destinations: AppDestinations,
     onNavigateToDestination: (TopLevelDestination) -> Unit,
-    currentDestination: NavDestination
+    currentDestination: NavDestination?,
 ) {
     NavigationBar {
         destinations.forEach { destination ->
             val selected =
                 currentDestination?.hierarchy?.any { it.route == destination.route } == true
-            NavigationBarItem(selected = selected,
+            NavigationBarItem(
+                selected = selected,
                 label = { Text(text = stringResource(id = destination.titleTextId)) },
                 onClick = { onNavigateToDestination(destination) },
                 icon = {
@@ -65,6 +67,7 @@ internal fun AppNavBar(
                     }
                     AppIcon(icon = icon)
                 })
+
         }
     }
 }
@@ -75,7 +78,8 @@ internal fun AppIcon(
 ) {
     when (icon) {
         is Icon.ImageVectorIcon -> androidx.compose.material3.Icon(
-            imageVector = icon.imageVector, contentDescription = null
+            imageVector = icon.imageVector,
+            contentDescription = null
         )
 
         is Icon.DrawableResourceIcon -> androidx.compose.material3.Icon(

@@ -10,7 +10,9 @@ import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.mycomposeapp.R
+import com.example.mycomposeapp.feature.category.navigation.CategoryNavigationRoute
 import com.example.mycomposeapp.feature.home.navigaiton.HomeNavigationRoute
+import com.example.mycomposeapp.feature.profile.navigation.ProfileNavigationRoute
 
 enum class TopLevelDestination(
     val route: String,
@@ -25,13 +27,13 @@ enum class TopLevelDestination(
         titleTextId = R.string.home_title
     ),
     CATEGORY(
-        route = "CategoryNavigationRoute",
+        route = CategoryNavigationRoute,
         selectedIcon = Icon.ImageVectorIcon(AppIcons.Category),
         unSelectedIcon = Icon.ImageVectorIcon(AppIcons.CategoryOutlined),
         titleTextId = R.string.category_title
     ),
     PROFILE(
-        route = "ProfileNavigationRoute",
+        route = ProfileNavigationRoute,
         selectedIcon = Icon.ImageVectorIcon(AppIcons.Person),
         unSelectedIcon = Icon.ImageVectorIcon(AppIcons.PersonOutlined),
         titleTextId = R.string.profile_title
