@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.example.mycomposeapp.feature.profile.navigation.profileScreen
 import com.example.mycomposeapp.feature.home.navigaiton.HomeNavigationRoute
 import com.example.mycomposeapp.feature.home.navigaiton.homeScreen
 import com.example.mycomposeapp.feature.splash.navigation.SplashNavigationRoute
@@ -33,5 +34,6 @@ fun MainNavHost(
                 }
             }
         })
+        profileScreen()
     }
 }
