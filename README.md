@@ -2,7 +2,7 @@
   <h3>Compose practice: </h3>
 <ol>
   <li>
-    <strong>Modüller:</strong> Projemde mantıksal olarak bölünmüş modüller kullandım. Bu modüller, farklı işlevlere veya bileşenlere sahip olabilir ve ayrı iş mantıklarında çalışarak test edilebilirliği kolaylaştırır.
+    <strong>Soyut:</strong> Projemde mantıksal olarak bölünmüş sınıflar kullandım. Bu sınıflar, farklı işlevlere veya bileşenlere sahip olabilir ve ayrı iş mantıklarında çalışarak test edilebilirliği kolaylaştırır.
   </li>
   <li>
     <strong>Bağımlılık Enjeksiyonu:</strong> Dagger Hilt kütüphanesini kullanarak bağımlılıkları enjekte ettim ve bileşenler arasında gevşek bağımlılıklar oluşturdum. Bu sayede kodun daha sürdürülebilir, test edilebilir ve esnek olmasını sağladım.
